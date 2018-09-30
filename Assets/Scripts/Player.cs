@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 		}
 		
 		float angle = Quaternion.Angle(transform.rotation, human.rotation);
-		Debug.Log(angle);
+		//Debug.Log(angle);
 		
 		if(angle >= -10 && angle <= 15)
 		{
