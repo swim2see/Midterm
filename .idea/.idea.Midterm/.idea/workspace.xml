@@ -12,8 +12,10 @@
     <session id="1920752086">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -28,22 +30,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="3428" />
+          <entry key="cs" value="3690" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="3428" />
+          <entry key="C#" value="3690" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="601">
+            <state relative-caret-position="825">
               <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
               <folding>
                 <marker date="1538269349566" expanded="true" signature="6:123" ph="..." />
@@ -61,53 +63,54 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/TextImporter.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+            <state relative-caret-position="311">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
-                <marker date="1538272044832" expanded="true" signature="6:130" ph="..." />
-                <marker date="1538272044832" expanded="true" signature="173:2721" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="467:921" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="473:523" ph="/* compliment.IsActive; ... */" />
-                <marker date="1538272044832" expanded="true" signature="569:614" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="641:739" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="854:882" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="889:918" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="975:1565" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="995:1014" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="1018:1222" ph="/* theText.text = textLines[currentLine]; ... */" />
-                <marker date="1538272044832" expanded="true" signature="1240:1490" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="1306:1402" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="1341:1396" ph="/* compliment.IsActive(); ... */" />
-                <marker date="1538272044832" expanded="true" signature="1411:1480" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="1494:1539" ph="/* else if (isTyping) ... */" />
-                <marker date="1538272044832" expanded="true" signature="1617:2066" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="1735:1988" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="2013:2063" ph="/* isTyping = false; ... */" />
-                <marker date="1538272044832" expanded="true" signature="2096:2205" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="2236:2291" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="2337:2719" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="2363:2716" ph="{...}" />
-                <marker date="1538272044832" expanded="true" signature="2371:2639" ph="/* This resets the array of text back to 1, then it adds the number of text lines in the new text box ... */" />
+                <marker date="1538449305803" expanded="false" signature="6:130" ph="..." />
+                <marker date="1538449305803" expanded="true" signature="173:2803" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="496:1002" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="502:552" ph="/* compliment.IsActive; ... */" />
+                <marker date="1538449305803" expanded="true" signature="650:695" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="722:820" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="935:963" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="970:999" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="1056:1607" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="1076:1095" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="1099:1303" ph="/* theText.text = textLines[currentLine]; ... */" />
+                <marker date="1538449305803" expanded="true" signature="1321:1580" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="1387:1492" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="1422:1486" ph="/* btn1.gameObject.IsActive(true); ... */" />
+                <marker date="1538449305803" expanded="true" signature="1501:1570" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="1659:2148" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="1777:2070" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="1886:2019" ph="/* adds every letter dependent on type speed. (WaitForSeconds can only be used in a coroutine). typeSpeed is ... */" />
+                <marker date="1538449305803" expanded="true" signature="2095:2145" ph="/* isTyping = false; ... */" />
+                <marker date="1538449305803" expanded="true" signature="2178:2287" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="2318:2373" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="2419:2801" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="2445:2798" ph="{...}" />
+                <marker date="1538449305803" expanded="true" signature="2453:2721" ph="/* This resets the array of text back to 1, then it adds the number of text lines in the new text box ... */" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/ActivateTextAtLine.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+            <state relative-caret-position="361">
+              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding>
-                <marker date="1538272040733" expanded="true" signature="6:100" ph="..." />
-                <marker date="1538272040733" expanded="true" signature="149:841" ph="{...}" />
-                <marker date="1538272040733" expanded="true" signature="456:511" ph="{...}" />
-                <marker date="1538272040733" expanded="true" signature="566:835" ph="{...}" />
-                <marker date="1538272040733" expanded="true" signature="618:768" ph="{...}" />
-                <marker date="1538272040733" expanded="true" signature="789:832" ph="{...}" />
+                <marker date="1538449424468" expanded="false" signature="6:100" ph="..." />
+                <marker date="1538449424468" expanded="true" signature="149:1012" ph="{...}" />
+                <marker date="1538449424468" expanded="true" signature="456:679" ph="{...}" />
+                <marker date="1538449424468" expanded="true" signature="564:632" ph="/* btn1.SetActive(false); ... */" />
+                <marker date="1538449424468" expanded="true" signature="741:1007" ph="{...}" />
+                <marker date="1538449424468" expanded="true" signature="745:792" ph="/* if (waitForPress &amp;&amp; Input.GetKeyDown()) ... */" />
+                <marker date="1538449424468" expanded="true" signature="961:1004" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -171,7 +174,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="254" />
-    <option name="y" value="64" />
+    <option name="y" value="47" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -180,6 +183,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
       <pane id="UnityExplorer">
         <subPane>
           <expand>
@@ -197,10 +204,6 @@
         </subPane>
         <option name="show-hidden-items" value="false" />
       </pane>
-      <pane id="SolutionExplorer">
-        <option name="show-all-files" value="false" />
-      </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -246,12 +249,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538254516690</updated>
-      <workItem from="1538254518227" duration="12136000" />
+      <workItem from="1538254518227" duration="13452000" />
+      <workItem from="1538448795642" duration="1718000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12136000" />
+    <option name="totallyTimeSpent" value="15170000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -263,20 +267,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="254" y="64" width="1400" height="1000" extended-state="0" />
+    <frame x="254" y="47" width="1400" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25373134" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="NuGet" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unity" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unit Tests" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -284,12 +280,20 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Errors In Solution" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="bottom" id="NuGet" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="5" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,14 +315,21 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/NewBehaviourScript.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="825">
+          <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
           <folding>
-            <marker date="1538059360446" expanded="false" signature="6:78" ph="..." />
-            <marker date="1538059360446" expanded="true" signature="128:249" ph="{...}" />
-            <marker date="1538059360446" expanded="true" signature="178:185" ph="{...}" />
-            <marker date="1538059360446" expanded="true" signature="240:247" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="6:123" ph="..." />
+            <marker date="1538269349566" expanded="true" signature="160:1065" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="403:410" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="464:639" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="595:634" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="661:1063" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="735:779" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="813:856" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="988:1020" ph="{...}" />
+            <marker date="1538269349566" expanded="true" signature="1027:1059" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -336,69 +347,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/NewBehaviourScript.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
+        <state>
           <folding>
-            <marker date="1538269349566" expanded="true" signature="6:123" ph="..." />
-            <marker date="1538269349566" expanded="true" signature="160:1065" ph="{...}" />
-            <marker date="1538269349566" expanded="true" signature="403:410" ph="{...}" />
-            <marker date="1538269349566" expanded="true" signature="464:639" ph="{...}" />
-            <marker date="1538269349566" expanded="true" signature="595:634" ph="{...}" />
-            <marker date="1538269349566" expanded="true" signature="661:1063" ph="{...}" />
-            <marker date="1538269349566" expanded="true" signature="735:779" ph="{...}" />
-            <marker date="1538269349566" expanded="true" signature="813:856" ph="{...}" />
-            <marker date="1538269349566" expanded="true" signature="988:1020" ph="{...}" />
-            <marker date="1538269349566" expanded="true" signature="1027:1059" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TextImporter.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <marker date="1538272044832" expanded="true" signature="6:130" ph="..." />
-            <marker date="1538272044832" expanded="true" signature="173:2721" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="467:921" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="473:523" ph="/* compliment.IsActive; ... */" />
-            <marker date="1538272044832" expanded="true" signature="569:614" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="641:739" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="854:882" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="889:918" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="975:1565" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="995:1014" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="1018:1222" ph="/* theText.text = textLines[currentLine]; ... */" />
-            <marker date="1538272044832" expanded="true" signature="1240:1490" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="1306:1402" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="1341:1396" ph="/* compliment.IsActive(); ... */" />
-            <marker date="1538272044832" expanded="true" signature="1411:1480" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="1494:1539" ph="/* else if (isTyping) ... */" />
-            <marker date="1538272044832" expanded="true" signature="1617:2066" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="1735:1988" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="2013:2063" ph="/* isTyping = false; ... */" />
-            <marker date="1538272044832" expanded="true" signature="2096:2205" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="2236:2291" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="2337:2719" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="2363:2716" ph="{...}" />
-            <marker date="1538272044832" expanded="true" signature="2371:2639" ph="/* This resets the array of text back to 1, then it adds the number of text lines in the new text box ... */" />
+            <marker date="1538059360446" expanded="false" signature="6:78" ph="..." />
+            <marker date="1538059360446" expanded="true" signature="128:249" ph="{...}" />
+            <marker date="1538059360446" expanded="true" signature="178:185" ph="{...}" />
+            <marker date="1538059360446" expanded="true" signature="240:247" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/ActivateTextAtLine.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        <state relative-caret-position="361">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
           <folding>
-            <marker date="1538272040733" expanded="true" signature="6:100" ph="..." />
-            <marker date="1538272040733" expanded="true" signature="149:841" ph="{...}" />
-            <marker date="1538272040733" expanded="true" signature="456:511" ph="{...}" />
-            <marker date="1538272040733" expanded="true" signature="566:835" ph="{...}" />
-            <marker date="1538272040733" expanded="true" signature="618:768" ph="{...}" />
-            <marker date="1538272040733" expanded="true" signature="789:832" ph="{...}" />
+            <marker date="1538449424468" expanded="false" signature="6:100" ph="..." />
+            <marker date="1538449424468" expanded="true" signature="149:1012" ph="{...}" />
+            <marker date="1538449424468" expanded="true" signature="456:679" ph="{...}" />
+            <marker date="1538449424468" expanded="true" signature="564:632" ph="/* btn1.SetActive(false); ... */" />
+            <marker date="1538449424468" expanded="true" signature="741:1007" ph="{...}" />
+            <marker date="1538449424468" expanded="true" signature="745:792" ph="/* if (waitForPress &amp;&amp; Input.GetKeyDown()) ... */" />
+            <marker date="1538449424468" expanded="true" signature="961:1004" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TextImporter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <marker date="1538449305803" expanded="false" signature="6:130" ph="..." />
+            <marker date="1538449305803" expanded="true" signature="173:2803" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="496:1002" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="502:552" ph="/* compliment.IsActive; ... */" />
+            <marker date="1538449305803" expanded="true" signature="650:695" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="722:820" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="935:963" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="970:999" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="1056:1607" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="1076:1095" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="1099:1303" ph="/* theText.text = textLines[currentLine]; ... */" />
+            <marker date="1538449305803" expanded="true" signature="1321:1580" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="1387:1492" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="1422:1486" ph="/* btn1.gameObject.IsActive(true); ... */" />
+            <marker date="1538449305803" expanded="true" signature="1501:1570" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="1659:2148" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="1777:2070" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="1886:2019" ph="/* adds every letter dependent on type speed. (WaitForSeconds can only be used in a coroutine). typeSpeed is ... */" />
+            <marker date="1538449305803" expanded="true" signature="2095:2145" ph="/* isTyping = false; ... */" />
+            <marker date="1538449305803" expanded="true" signature="2178:2287" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="2318:2373" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="2419:2801" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="2445:2798" ph="{...}" />
+            <marker date="1538449305803" expanded="true" signature="2453:2721" ph="/* This resets the array of text back to 1, then it adds the number of text lines in the new text box ... */" />
           </folding>
         </state>
       </provider>

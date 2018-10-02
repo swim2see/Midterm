@@ -23,14 +23,16 @@ public class TextImporter : MonoBehaviour
 	private bool isTyping;
 	public float typeSpeed;
 	
+	public Button compliment;
+	
 	// Use this for initialization
 	void Start ()
 	{
 		//compliment.IsActive;
 		//meanComment.IsActive();
 		isTyping = true;
-
 		
+		//Button btn1 = compliment.GetComponent<Button>();
 
 		if (endAtLine == 0)
 		{
@@ -74,7 +76,7 @@ public class TextImporter : MonoBehaviour
 				if (currentLine >= endAtLine)
 				{
 					DisableTextBox();
-					//compliment.IsActive();
+					//btn1.gameObject.IsActive(true);
 					//meanComment.IsActive();
 				}
 				else
@@ -83,11 +85,7 @@ public class TextImporter : MonoBehaviour
 				}
 				
 			}
-			//else if (isTyping)
-			//{
-				
-			//}
-		//}
+
 		Debug.Log(isTyping);
 	}
 
@@ -101,7 +99,8 @@ public class TextImporter : MonoBehaviour
 			//gets every letter from the imported text
 			theText.text += lineOfText[letter];
 			letter += 1;
-			//adds every letter dependent on type speed. (WaitForSeconds can only be used in a coroutine)
+			//adds every letter dependent on type speed. (WaitForSeconds can only be used in a coroutine). typeSpeed is
+			//set in the inspector
 			yield return new WaitForSeconds(typeSpeed);
 		}
 

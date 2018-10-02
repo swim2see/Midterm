@@ -213,10 +213,9 @@ MonoBehaviour:
   textLines: []
   currentLine: 0
   endAtLine: 9
-  compliment: {fileID: 631401684}
-  meanComment: {fileID: 561648830}
   isActive: 1
   typeSpeed: 0.2
+  compliment: {fileID: 631401684}
 --- !u!4 &282408754
 Transform:
   m_ObjectHideFlags: 0
@@ -247,6 +246,8 @@ MonoBehaviour:
   theTextBox: {fileID: 0}
   destroyWhenActivated: 0
   requirePress: 0
+  compliment: {fileID: 631401684}
+  meanComment: {fileID: 561648830}
 --- !u!1 &350919947
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +642,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 631401680}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c08cf1e29718d458691624a8d3c67d, type: 3}
   m_Name: 
@@ -652,6 +653,8 @@ MonoBehaviour:
   theTextBox: {fileID: 0}
   destroyWhenActivated: 0
   requirePress: 0
+  compliment: {fileID: 0}
+  meanComment: {fileID: 0}
 --- !u!1 &1024542525
 GameObject:
   m_ObjectHideFlags: 0

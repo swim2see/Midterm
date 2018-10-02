@@ -25,17 +25,25 @@ public class ActivateTextAtLine : MonoBehaviour
 	void Start ()
 	{
 		theTextBox = FindObjectOfType<TextImporter>();
+
+		Button btn1 = compliment.GetComponent<Button>();
+
+		//btn1.SetActive(false);
+		//compliment.gameObject.SetActive(false);
+		
+		btn1.onClick.AddListener(TaskOnClick);
 	}
 	
+	
 	// Update is called once per frame
-	void Update () {
-		if (waitForPress && Input.GetKeyDown(KeyCode.E))
-		{
+	void TaskOnClick () {
+		//if (waitForPress && Input.GetKeyDown())
+		//{
 			theTextBox.ReloadScript(theText);
 			theTextBox.currentLine = startLine;
 			theTextBox.endAtLine = endLine;
 			theTextBox.EnableTextBox();
-		}
+		//}
 
 		if (requirePress)
 		{
@@ -43,6 +51,7 @@ public class ActivateTextAtLine : MonoBehaviour
 			return;
 		}
 	}
-	
-	
+
+
+
 }
