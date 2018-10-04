@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Contexts;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -22,12 +23,15 @@ public class TextImporter : MonoBehaviour
 
 	private bool isTyping;
 	public float typeSpeed;
+
+	public ActivateTextAtLine textActivator; 
 	
 	public Button compliment;
 	
 	// Use this for initialization
 	void Start ()
 	{
+		//textActivator = GetComponent<ActivateTextAtLine>();
 		//compliment.IsActive;
 		//meanComment.IsActive();
 		isTyping = true;
@@ -52,6 +56,7 @@ public class TextImporter : MonoBehaviour
 		else
 		{
 			DisableTextBox();
+			textActivator.compliment.gameObject.SetActive(true);
 		}
 	}
 	

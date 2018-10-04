@@ -215,7 +215,7 @@ MonoBehaviour:
   endAtLine: 9
   isActive: 1
   typeSpeed: 0.2
-  compliment: {fileID: 631401684}
+  textActivator: {fileID: 0}
 --- !u!4 &282408754
 Transform:
   m_ObjectHideFlags: 0
