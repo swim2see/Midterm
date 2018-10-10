@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class TextImporter : MonoBehaviour
 {
 
-	public GameObject textBox; 
+	public GameObject textBox;
+	public GameObject digBox; 
 	
 	public TextAsset textFile;
 
@@ -24,20 +25,26 @@ public class TextImporter : MonoBehaviour
 	private bool isTyping;
 	public float typeSpeed;
 
-	public ActivateTextAtLine textActivator; 
+	public ActivateTextAtLine textActivator;
+	public DigButton digScript;
 	
 	public Button compliment;
+	public Button dig;
+	public Button topic1;
 	
 	// Use this for initialization
 	void Start ()
 	{
-		//textActivator = GetComponent<ActivateTextAtLine>();
-		//compliment.IsActive;
+		// Sets the response prompts to false at Start	
+		compliment.gameObject.SetActive(false);
+		topic1.gameObject.SetActive(false);
+		
 		//meanComment.IsActive();
+		//Allows the text to start typing at the beginning
 		isTyping = true;
 		
-		//Button btn1 = compliment.GetComponent<Button>();
 
+		//When all letters of a text line have been written, move onto the next text line.
 		if (endAtLine == 0)
 		{
 			endAtLine = textLines.Length - 1;
@@ -56,33 +63,39 @@ public class TextImporter : MonoBehaviour
 		else
 		{
 			DisableTextBox();
-			textActivator.compliment.gameObject.SetActive(true);
 		}
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		//When there is currently no typing
 		if (!isActive)
 		{
+			//activate response buttons
+			compliment.gameObject.SetActive(true);
 			return;
 		}
+		else
+		{
+			compliment.gameObject.SetActive(false);
+		}
 
-		//theText.text = textLines[currentLine];
+		if (digScript.digCount >= 10)
+		{
+			topic1.gameObject.SetActive(true);
+		}
 
-		//if (Input.GetKeyDown(KeyCode.E))
-		//{
-			//will move to the next line when the human ends a sentence.
-		//THERE IS AN ISSUE HERE. IS TYPING DEFAULTS TO FALSE
+
+		//will move to the next line when the human ends a sentence.
+		//When human finihses typing a line, move onto the next line in the text file
 			if (!isTyping)
 			{
 				currentLine += 1;
-				
+				//checks if the text file has been expended
 				if (currentLine >= endAtLine)
 				{
 					DisableTextBox();
-					//btn1.gameObject.IsActive(true);
-					//meanComment.IsActive();
 				}
 				else
 				{
@@ -110,9 +123,6 @@ public class TextImporter : MonoBehaviour
 		}
 
 		isTyping = false;
-
-		//isTyping = false;
-		//theText.text = lineOfText;
 	}
 
 	public void EnableTextBox()
@@ -139,5 +149,10 @@ public class TextImporter : MonoBehaviour
 			textLines = new string[1];
 			textLines = (theText.text.Split('\n'));
 		}
+	}
+
+	public void DigPress()
+	{
+		
 	}
 }

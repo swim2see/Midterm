@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="ActivateTextAtLine.cs" t="Include" />
+          <e p="DigButton.cs" t="Include" />
           <e p="NewBehaviourScript.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="TextBoxManager.cs" t="Include" />
