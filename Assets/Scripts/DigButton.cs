@@ -22,6 +22,7 @@ public class DigButton : MonoBehaviour
 
 	void Update()
 	{
+		//Pulls up the dig menu screen
 		if (Input.GetKeyDown(KeyCode.E))
 		{
 			if (digPanel.activeSelf == true)
@@ -37,7 +38,7 @@ public class DigButton : MonoBehaviour
 		}
 	}
 
-	// Update is called once per frame
+	// Makes the DIG button shift position
 	void TaskOnClick ()
 	{
 		butPosition = new Vector3(Random.Range(50f,450f),Random.Range(10f,120f),0);

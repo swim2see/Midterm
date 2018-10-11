@@ -9,7 +9,6 @@ public class TextImporter : MonoBehaviour
 {
 
 	public GameObject textBox;
-	public GameObject digBox; 
 	
 	public TextAsset textFile;
 
@@ -22,22 +21,21 @@ public class TextImporter : MonoBehaviour
 
 	public bool isActive = true;
 
-	private bool isTyping;
+	public bool isTyping;
 	public float typeSpeed;
 
 	public ActivateTextAtLine textActivator;
 	public DigButton digScript;
 	
 	public Button compliment;
-	public Button dig;
-	public Button topic1;
+	
 	
 	// Use this for initialization
 	void Start ()
 	{
 		// Sets the response prompts to false at Start	
 		compliment.gameObject.SetActive(false);
-		topic1.gameObject.SetActive(false);
+	
 		
 		//meanComment.IsActive();
 		//Allows the text to start typing at the beginning
@@ -81,11 +79,6 @@ public class TextImporter : MonoBehaviour
 			compliment.gameObject.SetActive(false);
 		}
 
-		if (digScript.digCount >= 10)
-		{
-			topic1.gameObject.SetActive(true);
-		}
-
 
 		//will move to the next line when the human ends a sentence.
 		//When human finihses typing a line, move onto the next line in the text file
@@ -99,6 +92,8 @@ public class TextImporter : MonoBehaviour
 				}
 				else
 				{
+					// Figure out how to stop the couroutine, then replace it with  a new interruption coroutine that imports a new array of text 
+					// TextScroll should theoretically function fine with current line. Just change the textLines array into a different array. 
 					StartCoroutine(TextScroll(textLines[currentLine]));
 				}
 				
@@ -127,6 +122,7 @@ public class TextImporter : MonoBehaviour
 
 	public void EnableTextBox()
 	{
+		//sets the text box to active
 		textBox.SetActive(true);
 		isActive = true;
 		
@@ -151,8 +147,4 @@ public class TextImporter : MonoBehaviour
 		}
 	}
 
-	public void DigPress()
-	{
-		
-	}
 }

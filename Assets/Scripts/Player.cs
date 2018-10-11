@@ -12,21 +12,27 @@ public class Player : MonoBehaviour
 
 	public Transform human;
 
-	public float contactScore;
+	//public float contactScore;
 
 	public Text scoreDisplay;
 
+	public Image contentBar;
+	public float contentScore;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+		contentScore = 100;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		contentBar.fillAmount = contentScore / 100;
+		
 		HeadMovement();
 
-		scoreDisplay.text = contactScore.ToString();
+		//scoreDisplay.text = contentScore.ToString();
 
 		direction = Random.Range(0, 200);
 
@@ -55,13 +61,14 @@ public class Player : MonoBehaviour
 		float angle = Quaternion.Angle(transform.rotation, human.rotation);
 		//Debug.Log(angle);
 		
+		//gives score depending on what angle you're facing
 		if(angle >= -10 && angle <= 15)
 		{
-			contactScore += .1f;
+			contentScore += .1f;
 		}
 		else
 		{
-			contactScore -= .1f;
+			contentScore -= .1f;
 		}
 
 	}
