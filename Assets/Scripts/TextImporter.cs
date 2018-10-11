@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Contexts;
 using UnityEngine;
@@ -27,14 +28,16 @@ public class TextImporter : MonoBehaviour
 	public ActivateTextAtLine textActivator;
 	public DigButton digScript;
 	
-	public Button compliment;
+	public Button yeah;
+
+	private IEnumerator typer;
 	
 	
 	// Use this for initialization
 	void Start ()
 	{
 		// Sets the response prompts to false at Start	
-		compliment.gameObject.SetActive(false);
+		yeah.gameObject.SetActive(false);
 	
 		
 		//meanComment.IsActive();
@@ -71,12 +74,12 @@ public class TextImporter : MonoBehaviour
 		if (!isActive)
 		{
 			//activate response buttons
-			compliment.gameObject.SetActive(true);
+			yeah.gameObject.SetActive(true);
 			return;
 		}
 		else
 		{
-			compliment.gameObject.SetActive(false);
+			yeah.gameObject.SetActive(false);
 		}
 
 
@@ -94,7 +97,8 @@ public class TextImporter : MonoBehaviour
 				{
 					// Figure out how to stop the couroutine, then replace it with  a new interruption coroutine that imports a new array of text 
 					// TextScroll should theoretically function fine with current line. Just change the textLines array into a different array. 
-					StartCoroutine(TextScroll(textLines[currentLine]));
+					typer = TextScroll(textLines[currentLine]);
+					StartCoroutine(typer);
 				}
 				
 			}
@@ -102,6 +106,7 @@ public class TextImporter : MonoBehaviour
 		Debug.Log(isTyping);
 	}
 
+	//The problem is happening here.
 	private IEnumerator TextScroll(string lineOfText)
 	{
 		int letter = 0;
@@ -125,25 +130,38 @@ public class TextImporter : MonoBehaviour
 		//sets the text box to active
 		textBox.SetActive(true);
 		isActive = true;
+		isTyping = true;
+
+		currentLine = 0;
 		
-		StartCoroutine(TextScroll(textLines[currentLine]));
+		typer = TextScroll(textLines[0]);
+		StartCoroutine(typer);
 	}
 
 	public void DisableTextBox()
 	{
+		StopCoroutine(typer);
 		textBox.SetActive(false);
-		isActive = false; 
+		isActive = false;
+		isTyping = false;
+		Array.Clear(textLines, 0 , textLines.Length);
 	}
 
 	public void ReloadScript(TextAsset theText)
 	{
 		if (theText != null)
 		{
+			//StopCoroutine(TextScroll(textLines[currentLine]));;
 			//This resets the array of text back to 1, then it adds the number of text lines in the new text box
 			//imagine if your first text box had 9 lines, then the next one had 6. Without this, there would be
 			//3 lines of empty dialogue at the end of your new text file.
 			textLines = new string[1];
 			textLines = (theText.text.Split('\n'));
+			//StartCoroutine(TextScroll(textLines[currentLine]));;
+			if (endAtLine == 0)
+			{
+				endAtLine = textLines.Length - 1;
+			}
 		}
 	}
 

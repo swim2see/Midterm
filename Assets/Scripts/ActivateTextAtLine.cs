@@ -11,8 +11,10 @@ public class ActivateTextAtLine : MonoBehaviour
 	public int endLine;
 
 	public TextImporter textImporter;
-
+	public Player playerScript;
 	public DigButton digScript;
+
+	public bool yeahWorthy;
 
 	public bool destroyWhenActivated;
 
@@ -71,16 +73,23 @@ public class ActivateTextAtLine : MonoBehaviour
 	//Resets the text importers values for the new text
 	public void ResetLines()
 	{
-		Array.Clear(textImporter.textLines, 0 , textImporter.textLines.Length);
-		textImporter.currentLine = startLine;
-		textImporter.endAtLine = endLine;
-		textImporter.EnableTextBox();
+		
+		
+		//textImporter.currentLine = startLine;
+		//textImporter.endAtLine = endLine;
 	}
 
 	public void DogTalk()
 	{
-		ResetLines();
+		//lose points if you interrupt the person speaking
+		if (textImporter.isTyping == true)
+		{
+			playerScript.contentScore -= 10;
+		}
+
+		textImporter.DisableTextBox();
 		textImporter.ReloadScript(dogTalk);
+		textImporter.EnableTextBox();
 	}
 
 }

@@ -28,11 +28,17 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		
 		contentBar.fillAmount = contentScore / 100;
 		
 		HeadMovement();
 
 		//scoreDisplay.text = contentScore.ToString();
+
+		if (contentScore >= 100)
+		{
+			contentScore = 100;
+		}
 
 		direction = Random.Range(0, 200);
 
