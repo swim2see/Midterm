@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
 	public Transform human;
 
+	public Text eyeContact;
+
 	//public float contactScore;
 
 	public Text scoreDisplay;
@@ -40,14 +42,14 @@ public class Player : MonoBehaviour
 			contentScore = 100;
 		}
 
+
+
 		direction = Random.Range(0, 200);
 
 		if (direction == 100)
 		{
 			turnSpeed = turnSpeed * -1;
 		}
-
-
 	}
 
 	void HeadMovement()
@@ -69,6 +71,17 @@ public class Player : MonoBehaviour
 		
 		//gives score depending on what angle you're facing
 		if(angle >= -10 && angle <= 15)
+		{
+			eyeContact.text = "";
+			contentScore += .1f;
+		}
+		else
+		{
+			eyeContact.text = "MAKE EYE CONTACT";
+			contentScore -= .1f;
+		}
+		
+		if(angle >= -180 && angle <= -140)
 		{
 			contentScore += .1f;
 		}

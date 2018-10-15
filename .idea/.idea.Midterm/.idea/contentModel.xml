@@ -9,12 +9,18 @@
         <e p="Scripts" t="Include">
           <e p="ActivateTextAtLine.cs" t="Include" />
           <e p="DigButton.cs" t="Include" />
+          <e p="DoorScript.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="RaycastMouse.cs" t="Include" />
           <e p="TextImporter.cs" t="Include" />
         </e>
         <e p="Text" t="Include">
           <e p="dog text.txt" t="Include" />
           <e p="example text.txt" t="Include" />
+          <e p="Movie Talk.txt" t="Include" />
+          <e p="Negative response.txt" t="Include" />
+          <e p="Parents.txt" t="Include" />
+          <e p="Positve Response.txt" t="Include" />
           <e p="Response example.txt" t="Include" />
         </e>
       </e>

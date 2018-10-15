@@ -20,6 +20,7 @@ public class TextImporter : MonoBehaviour
 	public int currentLine;
 	public int endAtLine;
 
+	//Checks if the human is speaking
 	public bool isActive = true;
 
 	public bool isTyping;
@@ -28,19 +29,13 @@ public class TextImporter : MonoBehaviour
 	public ActivateTextAtLine textActivator;
 	public DigButton digScript;
 	
-	public Button yeah;
-
+	
 	private IEnumerator typer;
 	
 	
 	// Use this for initialization
 	void Start ()
 	{
-		// Sets the response prompts to false at Start	
-		yeah.gameObject.SetActive(false);
-	
-		
-		//meanComment.IsActive();
 		//Allows the text to start typing at the beginning
 		isTyping = true;
 		
@@ -70,18 +65,6 @@ public class TextImporter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		//When there is currently no typing
-		if (!isActive)
-		{
-			//activate response buttons
-			yeah.gameObject.SetActive(true);
-			return;
-		}
-		else
-		{
-			yeah.gameObject.SetActive(false);
-		}
-
 
 		//will move to the next line when the human ends a sentence.
 		//When human finihses typing a line, move onto the next line in the text file
