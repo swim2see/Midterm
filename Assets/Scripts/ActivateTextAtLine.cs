@@ -57,17 +57,17 @@ public class ActivateTextAtLine : MonoBehaviour
 
 	private void Update()
 	{
-		if (digScript.digCount >= 10)
+		if (digScript.digCount >= 5)
 		{
 			dogButton.gameObject.SetActive(true);
 		}
 		
-		if (digScript.digCount >= 30)
+		if (digScript.digCount >= 15)
 		{
 			movieButton.gameObject.SetActive(true);
 		}
 		
-		if (digScript.digCount >= 50)
+		if (digScript.digCount >= 25)
 		{
 			parentButton.gameObject.SetActive(true);
 		}
@@ -98,8 +98,7 @@ public class ActivateTextAtLine : MonoBehaviour
 
 		if (playerScript.contentScore <= 0)
 		{
-			conversationGauge.text = "You are bad at this";
-			//Application.Quit();
+			conversationGauge.text = "Just go home.";
 		}
 
 	}

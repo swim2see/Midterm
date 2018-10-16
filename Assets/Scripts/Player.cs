@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 	public Image contentBar;
 	public float contentScore;
 
+	public RaycastMouse rc;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -50,45 +52,57 @@ public class Player : MonoBehaviour
 		{
 			turnSpeed = turnSpeed * -1;
 		}
+	
+		if (contentScore <= 0)
+		{
+			Time.timeScale = 0;
+		}
+
+		if (rc.doorClicked == true)
+		{
+			Time.timeScale = 0;
+		}
+
 	}
 
 	void HeadMovement()
 	{
-		transform.Rotate(0f, turnSpeed, 0f);
+		if (contentScore > 0)
+		{
+			if (rc.doorClicked == false)
+			{
+				transform.Rotate(0f, turnSpeed, 0f);
 
-		if (Input.GetKey(KeyCode.A))
-		{
-			transform.Rotate(0f, -1.2f, 0f);
-		}
-		
-		if (Input.GetKey(KeyCode.D))
-		{
-			transform.Rotate(0f, 1.2f, 0f);
-		}
-		
-		float angle = Quaternion.Angle(transform.rotation, human.rotation);
-		//Debug.Log(angle);
-		
-		//gives score depending on what angle you're facing
-		if(angle >= -10 && angle <= 15)
-		{
-			eyeContact.text = "";
-			contentScore += .1f;
-		}
-		else
-		{
-			eyeContact.text = "MAKE EYE CONTACT";
-			contentScore -= .1f;
-		}
-		
-		if(angle >= -180 && angle <= -140)
-		{
-			contentScore += .1f;
-		}
-		else
-		{
-			contentScore -= .1f;
-		}
+				if (Input.GetKey(KeyCode.A))
+				{
+					transform.Rotate(0f, -1.2f, 0f);
+				}
 
+				if (Input.GetKey(KeyCode.D))
+				{
+					transform.Rotate(0f, 1.2f, 0f);
+				}
+
+				float angle = Quaternion.Angle(transform.rotation, human.rotation);
+				//Debug.Log(angle);
+
+				//gives score depending on what angle you're facing
+				if (angle >= -10 && angle <= 15)
+				{
+					eyeContact.text = "";
+					contentScore += .1f;
+				}
+				else if (angle >= 160 && angle <= 220)
+				{
+					eyeContact.text = "DON'T WATCH ANIME";
+					contentScore -= .15f;
+				}
+				else
+				{
+					eyeContact.text = "MAKE EYE CONTACT";
+					contentScore -= .1f;
+				}
+			}
+		}
 	}
 }

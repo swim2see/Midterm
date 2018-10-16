@@ -10,6 +10,8 @@ public class RaycastMouse : MonoBehaviour
 	
 	public Text doorText;
 
+	public bool doorClicked;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -35,13 +37,33 @@ public class RaycastMouse : MonoBehaviour
 				Debug.Log("the raycast hit object was tagged!");
 				safetyPanel.gameObject.SetActive(true);
 				doorText.gameObject.SetActive(true);
-				doorText.text = "LEAVE";
+				if (Input.GetMouseButtonDown(0))
+				{
+					doorClicked = true;
+				}
+
+				if (doorClicked)
+				{
+					doorText.text = "Smart. Go before you embarrass yourself.";
+				}
+				else
+				{
+					doorText.text = "LEAVE";
+				}
+
 			}
 			else
 			{
-				safetyPanel.gameObject.SetActive(false);
-				doorText.gameObject.SetActive(false);
-				doorText.text = "";
+				if (doorClicked)
+				{
+					doorText.text = "Smart. Go before you embarrass yourself.";
+				}
+				else
+				{
+					safetyPanel.gameObject.SetActive(false);
+					doorText.text = " ";
+					doorText.gameObject.SetActive(false);
+				}
 			}
 			
 		}
