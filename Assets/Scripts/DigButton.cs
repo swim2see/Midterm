@@ -16,7 +16,7 @@ public class DigButton : MonoBehaviour
 	// Use this for initialization
 	void Start () {
 		digButton.onClick.AddListener(TaskOnClick);
-		digPanel.gameObject.SetActive(false);
+		//digPanel.gameObject.SetActive(false);
 		//digButton.gameObject.SetActive(false);
 	}
 

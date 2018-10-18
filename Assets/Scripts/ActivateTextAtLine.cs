@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class ActivateTextAtLine : MonoBehaviour
 	public GameObject humanEyes;
 	
 	public Text conversationGauge;
+	public GameObject interruptBox;
 
 	public bool requirePress;
 	private bool waitForPress;
@@ -170,12 +172,15 @@ public class ActivateTextAtLine : MonoBehaviour
 		if (textImporter.isTyping == true)
 		{
 			playerScript.contentScore -= 10;
+			ShowInterruptText();
+			playerScript.Shake(.2f);
 		}
 
 		if (talkedDog == true)
 		{
 			playerScript.contentScore -= 20;
-			ShowFloatingText();
+			ShowAskText();
+			playerScript.Shake(.2f);
 		}
 
 		textImporter.DisableTextBox();
@@ -192,11 +197,13 @@ public class ActivateTextAtLine : MonoBehaviour
 		if (textImporter.isTyping == true)
 		{
 			playerScript.contentScore -= 10;
+			ShowInterruptText();
 		}
 
 		if (talkedMovie == true)
 		{
 			playerScript.contentScore -= 20;
+			ShowAskText();
 		}
 
 		textImporter.DisableTextBox();
@@ -214,11 +221,13 @@ public class ActivateTextAtLine : MonoBehaviour
 		if (textImporter.isTyping == true)
 		{
 			playerScript.contentScore -= 10;
+			ShowInterruptText();
 		}
 
 		if (talkedParents == true)
 		{
 			playerScript.contentScore -= 20;
+			ShowAskText();
 		}
 
 		textImporter.DisableTextBox();
@@ -228,10 +237,18 @@ public class ActivateTextAtLine : MonoBehaviour
 		talkedParents = true;
 	}
 
-	private void ShowFloatingText()
+	private void ShowAskText()
 	{
 		var go = Instantiate(FloatingTextPrefab, conversationGauge.gameObject.transform.position, Quaternion.identity);
+		go.GetComponent<Text>().text = "You already asked that!";
 		go.transform.parent = conversationGauge.gameObject.transform;
+	}
+	
+	private void ShowInterruptText()
+	{
+		var go = Instantiate(FloatingTextPrefab, interruptBox.gameObject.transform.position, Quaternion.identity);
+		go.GetComponent<Text>().text = "You interrupted him!";
+		go.transform.parent = interruptBox.gameObject.transform;
 	}
 
 }

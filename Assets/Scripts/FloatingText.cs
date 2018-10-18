@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloatingText : MonoBehaviour
 {
 
-	public float destroyTime;
+	public float destroyTime = 1f;
 	
 	// Use this for initialization
 	void Start () {

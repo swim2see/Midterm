@@ -112,6 +112,12 @@ public class Player : MonoBehaviour
 			}
 		}
 
+		//screen shake
+		if (pendingShakeDuration > 0 && !isShaking)
+		{
+			StartCoroutine(DoShake());
+		}
+
 	}
 
 	void HeadMovement()
@@ -171,14 +177,22 @@ public class Player : MonoBehaviour
 
 	private bool isShaking = false;
 
-	/*public IEnumerator DoShake()
+	public IEnumerator DoShake()
 	{
 		isShaking = true;
+
+		var startTime = Time.realtimeSinceStartup;
+		while (Time.realtimeSinceStartup < startTime + pendingShakeDuration)
+		{
+			var randomPoint = new Vector3(Random.Range(-.0000001f,.0000001f), Random.Range(-.000000001f,.00000001f), initialPos.z);
+			target.localPosition = randomPoint;
+			yield return null;
+		}
 
 		pendingShakeDuration = 0f;
 		target.localPosition = initialPos; 
 
-		/isShaking = false;
-	}*/
+		isShaking = false;
+	}
 
 }
