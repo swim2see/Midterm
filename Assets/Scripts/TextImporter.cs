@@ -31,6 +31,8 @@ public class TextImporter : MonoBehaviour
 	
 	
 	private IEnumerator typer;
+
+	public Player pl;
 	
 	
 	// Use this for initialization
@@ -85,8 +87,6 @@ public class TextImporter : MonoBehaviour
 				}
 				
 			}
-
-		Debug.Log(isTyping);
 	}
 
 	//The problem is happening here.

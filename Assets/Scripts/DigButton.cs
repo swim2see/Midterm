@@ -17,9 +17,10 @@ public class DigButton : MonoBehaviour
 	void Start () {
 		digButton.onClick.AddListener(TaskOnClick);
 		digPanel.gameObject.SetActive(false);
-		digButton.gameObject.SetActive(false);
+		//digButton.gameObject.SetActive(false);
 	}
 
+	/*
 	void Update()
 	{
 		//Pulls up the dig menu screen
@@ -36,12 +37,12 @@ public class DigButton : MonoBehaviour
 				digButton.gameObject.SetActive(true);
 			}
 		}
-	}
+	}*/
 
 	// Makes the DIG button shift position
 	void TaskOnClick ()
 	{
-		butPosition = new Vector3(Random.Range(50f,1000f),Random.Range(10f,120f),0);
+		butPosition = new Vector3(Random.Range(0f,Screen.width),Random.Range(0f,Screen.height),0);
 		digButton.gameObject.transform.position = butPosition;
 		digCount += 1;
 	}
