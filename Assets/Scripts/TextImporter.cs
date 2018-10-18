@@ -67,9 +67,15 @@ public class TextImporter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		Debug.Log(textLines.Length);
+		if (pl.gameState == 0)
+		{
+			currentLine = 0;
+		}
 
 		//will move to the next line when the human ends a sentence.
 		//When human finihses typing a line, move onto the next line in the text file
+		if(pl.gameState == 1){
 			if (!isTyping)
 			{
 				currentLine += 1;
@@ -85,8 +91,8 @@ public class TextImporter : MonoBehaviour
 					typer = TextScroll(textLines[currentLine]);
 					StartCoroutine(typer);
 				}
-				
 			}
+		}
 	}
 
 	//The problem is happening here.

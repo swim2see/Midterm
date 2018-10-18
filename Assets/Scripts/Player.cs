@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
 	//public float contactScore;
 
+	public TextImporter tI;
+
 	public Text scoreDisplay;
 
 	public Image contentBar;
@@ -29,7 +31,9 @@ public class Player : MonoBehaviour
 	private Transform target;
 	private Vector3 initialPos;
 
-	private int gameState = 0;
+	public int gameState = 0;
+
+	public GameObject instructionsScreen;
 
 	// Use this for initialization
 	void Start ()
@@ -44,47 +48,70 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
+		Debug.Log(gameState);
 		contentBar.fillAmount = contentScore / 100;
+		
+		//Resets all of the gameplay elements. 
+		if (gameState == 0)
+		{
+			Time.timeScale = 1;
+			contentScore = 100; 
+			instructionsScreen.gameObject.SetActive(true);
+			if (Input.GetMouseButtonDown(0))
+			{
+				gameState = 1; 
+				tI.EnableTextBox();
+			}
+		}
 
-		//if (gameState == 1)
-		//{
-
+		//GAMESTATE 1. MOST GAMEPLAY
+		if (gameState == 1)
+		{
+			instructionsScreen.gameObject.SetActive(false);
 
 			HeadMovement();
 
 			//scoreDisplay.text = contentScore.ToString();
 
+			//keeps the bar from overfilling
 			if (contentScore >= 100)
 			{
 				contentScore = 100;
 			}
 
 
-
+			//Changes direction of head movement
 			direction = Random.Range(0, 200);
-
 			if (direction == 100)
 			{
 				turnSpeed = turnSpeed * -1;
 			}
 
 
-
+			//Leaving the party
 			if (rc.doorClicked == true)
 			{
-				Time.timeScale = 0;
 				gameState = 2;
 			}
-		//}
+		}
 
 
 		if (contentScore <= 0)
 		{
-			Time.timeScale = 0;
 			gameState = 2;
 		}
-		
+
+		//Lose/victory screen
+		if (gameState == 2)
+		{
+			Time.timeScale = 0;
+			instructionsScreen.gameObject.SetActive(true);
+			if (Input.GetKeyDown(KeyCode.R))
+			{
+				gameState = 0;
+			}
+		}
+
 	}
 
 	void HeadMovement()

@@ -10,6 +10,7 @@
           <e p="ActivateTextAtLine.cs" t="Include" />
           <e p="DigButton.cs" t="Include" />
           <e p="DoorScript.cs" t="Include" />
+          <e p="FloatingText.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="RaycastMouse.cs" t="Include" />
           <e p="TextImporter.cs" t="Include" />
