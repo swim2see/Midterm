@@ -30,11 +30,13 @@ public class ActivateTextAtLine : MonoBehaviour
 	public AudioSource laugh;
 	public AudioSource confusion;
 	public AudioSource error;
+	public AudioSource success;
 	
 	[Header("Text locations")]
 	public Text conversationGauge;
 	public GameObject interruptBox;
 	public GameObject weirdBox;
+	public GameObject goodBox;
 
 	public bool requirePress;
 	private bool waitForPress;
@@ -242,6 +244,8 @@ public class ActivateTextAtLine : MonoBehaviour
 			textImporter.EnableTextBox();
 			canYeah = false;
 			laugh.Play();
+			success.Play();
+			ShowGoodText();
 		}
 		else
 		{
@@ -261,6 +265,8 @@ public class ActivateTextAtLine : MonoBehaviour
 			textImporter.EnableTextBox();
 			canYeah = false;
 			laugh.Play();
+			success.Play();
+			ShowGoodText();
 		}
 		else
 		{
@@ -537,6 +543,11 @@ public class ActivateTextAtLine : MonoBehaviour
 		var go = Instantiate(FloatingTextPrefab, conversationGauge.gameObject.transform.position, Quaternion.identity);
 		go.GetComponent<Text>().text = "You already asked that!";
 		go.transform.parent = conversationGauge.gameObject.transform;
+
+		if (playerScript.gameState == 3)
+		{
+			go.GetComponent<Text>().text = "";
+		}
 	}
 	
 	//Instantiates prfab when interrupting
@@ -545,6 +556,11 @@ public class ActivateTextAtLine : MonoBehaviour
 		var go = Instantiate(FloatingTextPrefab, interruptBox.gameObject.transform.position, Quaternion.identity);
 		go.GetComponent<Text>().text = "You interrupted him!";
 		go.transform.parent = interruptBox.gameObject.transform;
+		
+		if (playerScript.gameState == 3)
+		{
+			go.GetComponent<Text>().text = "";
+		}
 	}
 	
 	//Instantiates prfab when asking weird question
@@ -553,6 +569,36 @@ public class ActivateTextAtLine : MonoBehaviour
 		var go = Instantiate(FloatingTextPrefab, weirdBox.gameObject.transform.position, Quaternion.identity);
 		go.GetComponent<Text>().text = "Uncomfortable conversation topic!";
 		go.transform.parent = weirdBox.gameObject.transform;
+		
+		if (playerScript.gameState == 3)
+		{
+			go.GetComponent<Text>().text = "";
+		}
+	}
+	
+	private void ShowGoodText()
+	{
+		var go = Instantiate(FloatingTextPrefab, goodBox.gameObject.transform.position, Quaternion.identity);
+		go.GetComponent<Text>().text = "Good response!";
+		go.transform.parent = goodBox.gameObject.transform;
+		
+		if (playerScript.gameState == 3)
+		{
+			go.GetComponent<Text>().text = "";
+		}
+	}
+	
+	private void TopicUnlockText()
+	{
+		var go = Instantiate(FloatingTextPrefab, goodBox.gameObject.transform.position, Quaternion.identity);
+		go.GetComponent<Text>().text = "Topic unlocked!";
+		go.transform.parent = goodBox.gameObject.transform;
+		success.Play();
+		
+		if (playerScript.gameState == 3)
+		{
+			go.GetComponent<Text>().text = "";
+		}
 	}
 
 }
