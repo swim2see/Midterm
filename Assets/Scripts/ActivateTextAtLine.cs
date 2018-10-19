@@ -49,6 +49,10 @@ public class ActivateTextAtLine : MonoBehaviour
 	public Button foodButton;
 	public Button gunButton;
 	public Button vacationButton;
+	public Button anxietyButton;
+	public Button accentButton;
+	public Button IBSButton;
+	public Button seeYaButton;
 	
 	[Header("Text Assets")] 
 	public TextAsset introText;
@@ -60,6 +64,11 @@ public class ActivateTextAtLine : MonoBehaviour
 	public TextAsset foodTalk;
 	public TextAsset gunTalk;
 	public TextAsset vacationTalk;
+	public TextAsset anxietyTalk;
+	public TextAsset accentTalk;
+	public TextAsset iBSTalk;
+	public TextAsset seeYaTalk;
+	
 	
 
 	//incur a penalty if you've used the same conversation topic twice
@@ -70,6 +79,11 @@ public class ActivateTextAtLine : MonoBehaviour
 	public bool talkedFood;
 	public bool talkedGun;
 	public bool talkedVacation;
+	public bool talkedAnxiety;
+	public bool talkedAccent;
+	public bool talkedIBS;
+	public bool talkedSeeYa;
+	
 	
 	// Use this for initialization
 	void Start ()
@@ -83,6 +97,10 @@ public class ActivateTextAtLine : MonoBehaviour
 		talkedFood = false;
 		talkedGun = false;
 		talkedVacation = false;
+		talkedAnxiety = false;
+		talkedAccent = false;
+		talkedIBS = false;
+		talkedSeeYa = false;
 		AudioSource replyNoise = GetComponent<AudioSource>();
 		laugh.volume = 500;
 		confusion.volume = 500;
@@ -102,6 +120,10 @@ public class ActivateTextAtLine : MonoBehaviour
 			talkedFood = false;
 			talkedGun = false;
 			talkedVacation = false;
+			talkedAnxiety = false;
+			talkedAccent = false;
+			talkedIBS = false;
+			talkedSeeYa = false;
 			digScript.digCount = 0;
 			textImporter.DisableTextBox();
 			textImporter.ReloadScript(introText);
@@ -110,7 +132,11 @@ public class ActivateTextAtLine : MonoBehaviour
 			parentButton.gameObject.SetActive(false);
 			foodButton.gameObject.SetActive(false);
 			gunButton.gameObject.SetActive(false);
-			
+			vacationButton.gameObject.SetActive(false);
+			anxietyButton.gameObject.SetActive(false);
+			accentButton.gameObject.SetActive(false);
+			IBSButton.gameObject.SetActive(false);
+			seeYaButton.gameObject.SetActive(false);
 			digScript.digButton.gameObject.transform.position = new Vector3((Screen.width/2),(Screen.height/2),100f);
 		}
 
@@ -155,11 +181,27 @@ public class ActivateTextAtLine : MonoBehaviour
 			{
 				vacationButton.gameObject.SetActive(true);
 			}
+			if (digScript.digCount >= 75)
+			{
+				anxietyButton.gameObject.SetActive(true);
+			}
+			if (digScript.digCount >= 100)
+			{
+				accentButton.gameObject.SetActive(true);
+			}
+			if (digScript.digCount >= 130)
+			{
+				IBSButton.gameObject.SetActive(true);
+			}
+			if (digScript.digCount >= 150)
+			{
+				seeYaButton.gameObject.SetActive(true);
+			}
 
 			//When there is currently no typing
 			if (textImporter.isActive == false && canYeah == true)
 			{
-				playerScript.contentScore -= 0.1f;
+				playerScript.contentScore -= 0.05f;
 				conversationGauge.text = "RESPOND!";
 				//activate response buttons
 				yeah.gameObject.SetActive(true);
@@ -170,7 +212,7 @@ public class ActivateTextAtLine : MonoBehaviour
 			{
 				//Change this conversation thing later. It'll fuck you up.
 				conversationGauge.text = "CONVERSATIONAL LULL!";
-				playerScript.contentScore -= 0.2f;
+				playerScript.contentScore -= 0.1f;
 				yeah.gameObject.SetActive(false);
 				nah.gameObject.SetActive(false);
 				fastMusic = true;
@@ -396,6 +438,97 @@ public class ActivateTextAtLine : MonoBehaviour
 		yeahWorthy = true;
 		canYeah = true;
 		talkedVacation = true;
+	}
+	
+	public void AnxietyTalk()
+	{
+		playerScript.contentScore -= 10;
+		ShowWeirdText();
+		//lose points if you interrupt the person speaking
+		if (textImporter.isTyping == true)
+		{
+			playerScript.contentScore -= 10;
+			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		if (talkedAnxiety == true)
+		{
+			playerScript.contentScore -= 20;
+			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		textImporter.DisableTextBox();
+		textImporter.ReloadScript(anxietyTalk);
+		textImporter.EnableTextBox();
+		yeahWorthy = false;
+		canYeah = true;
+		talkedAnxiety = true;
+	}
+	
+	public void AccentTalk()
+	{
+		//lose points if you interrupt the person speaking
+		if (textImporter.isTyping == true)
+		{
+			playerScript.contentScore -= 10;
+			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		if (talkedAccent == true)
+		{
+			playerScript.contentScore -= 20;
+			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		textImporter.DisableTextBox();
+		textImporter.ReloadScript(accentTalk);
+		textImporter.EnableTextBox();
+		yeahWorthy = false;
+		canYeah = true;
+		talkedAccent = true;
+	}
+	
+	public void IBSTalk()
+	{
+		//lose points if you interrupt the person speaking
+		if (textImporter.isTyping == true)
+		{
+			playerScript.contentScore -= 10;
+			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		if (talkedIBS == true)
+		{
+			playerScript.contentScore -= 20;
+			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		textImporter.DisableTextBox();
+		textImporter.ReloadScript(iBSTalk);
+		textImporter.EnableTextBox();
+		yeahWorthy = false;
+		canYeah = true;
+		talkedIBS = true;
+	}
+	
+	public void SeeYaTalk()
+	{
+		textImporter.DisableTextBox();
+		textImporter.ReloadScript(seeYaTalk);
+		textImporter.EnableTextBox();
+		talkedSeeYa = true;
 	}
 
 	//Instantiates prfab when repeating question

@@ -1442,6 +1442,9 @@ MonoBehaviour:
   foodButton: {fileID: 1618917675}
   gunButton: {fileID: 718922640}
   vacationButton: {fileID: 1466818720}
+  anxietyButton: {fileID: 1598101563}
+  accentButton: {fileID: 1994085588}
+  IBSButton: {fileID: 361487915}
   introText: {fileID: 4900000, guid: a24c8cb1749ddd747acf140ebe51b932, type: 3}
   positiveResponse: {fileID: 4900000, guid: feec202f5c49e184b8b5689467efe0eb, type: 3}
   negativeResponse: {fileID: 4900000, guid: 198a2e6f3c028224091cb40ff8337207, type: 3}
@@ -1451,12 +1454,18 @@ MonoBehaviour:
   foodTalk: {fileID: 4900000, guid: d191152501c6b2f448caed5b8bd85bfb, type: 3}
   gunTalk: {fileID: 4900000, guid: 65a5ce821aa05eb4f86155069298fc6f, type: 3}
   vacationTalk: {fileID: 4900000, guid: a7151d3c2c77e774e85b17c9b53d5dbd, type: 3}
+  anxietyTalk: {fileID: 4900000, guid: 2296841ddf4b91441850fc523ffe3d4b, type: 3}
+  accentTalk: {fileID: 4900000, guid: 421440628b7cd614bb2f7da1b3f7dd88, type: 3}
+  iBSTalk: {fileID: 4900000, guid: ff8be5d1fb4cb3940b6d097a86bce056, type: 3}
   talkedDog: 0
   talkedMovie: 0
   talkedParents: 0
   talkedFood: 0
   talkedGun: 0
   talkedVacation: 0
+  talkedAnxiety: 0
+  talkedAccent: 0
+  talkedIBS: 0
 --- !u!1 &303982847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1776,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Your anxiety
 --- !u!222 &351335963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1787,7 +1796,7 @@ GameObject:
   - component: {fileID: 361487916}
   - component: {fileID: 361487915}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: IBS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1832,7 +1841,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.97120583, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1850,7 +1859,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 361487916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 282408755}
+        m_MethodName: IBSTalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &361487916
@@ -5993,7 +6013,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: See ya around
 --- !u!222 &1137858207
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6068,7 +6088,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Funny voices
 --- !u!222 &1144790197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7757,7 +7777,7 @@ GameObject:
   - component: {fileID: 1598101564}
   - component: {fileID: 1598101563}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Anxiety
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7802,7 +7822,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.92988515, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -7820,7 +7840,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1598101564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 282408755}
+        m_MethodName: AnxietyTalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1598101564
@@ -8825,7 +8856,7 @@ GameObject:
   - component: {fileID: 1719305717}
   - component: {fileID: 1719305716}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: See ya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9355,7 +9386,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Your IBS
 --- !u!222 &1885492583
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10058,7 +10089,7 @@ GameObject:
   - component: {fileID: 1994085589}
   - component: {fileID: 1994085588}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Accents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10103,7 +10134,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.98745596, b: 0, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -10121,7 +10152,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1994085589}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 282408755}
+        m_MethodName: AccentTalk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1994085589
