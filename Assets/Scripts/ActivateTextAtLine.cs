@@ -46,7 +46,10 @@ public class ActivateTextAtLine : MonoBehaviour
 	public Button dogButton;
 	public Button movieButton;
 	public Button parentButton;
-
+	public Button foodButton;
+	public Button gunButton;
+	public Button vacationButton;
+	
 	[Header("Text Assets")] 
 	public TextAsset introText;
 	public TextAsset positiveResponse;
@@ -54,12 +57,19 @@ public class ActivateTextAtLine : MonoBehaviour
 	public TextAsset dogTalk;
 	public TextAsset movieTalk;
 	public TextAsset parentTalk;
+	public TextAsset foodTalk;
+	public TextAsset gunTalk;
+	public TextAsset vacationTalk;
+	
 
 	//incur a penalty if you've used the same conversation topic twice
 	[Header("Used Text")]
 	public bool talkedDog;
 	public bool talkedMovie;
 	public bool talkedParents;
+	public bool talkedFood;
+	public bool talkedGun;
+	public bool talkedVacation;
 	
 	// Use this for initialization
 	void Start ()
@@ -70,6 +80,9 @@ public class ActivateTextAtLine : MonoBehaviour
 		canYeah = false;
 		talkedDog = false;
 		talkedParents = false;
+		talkedFood = false;
+		talkedGun = false;
+		talkedVacation = false;
 		AudioSource replyNoise = GetComponent<AudioSource>();
 		laugh.volume = 500;
 		confusion.volume = 500;
@@ -86,12 +99,17 @@ public class ActivateTextAtLine : MonoBehaviour
 			talkedDog = false;
 			talkedMovie = false;
 			talkedParents = false;
+			talkedFood = false;
+			talkedGun = false;
+			talkedVacation = false;
 			digScript.digCount = 0;
 			textImporter.DisableTextBox();
 			textImporter.ReloadScript(introText);
 			dogButton.gameObject.SetActive(false);
 			movieButton.gameObject.SetActive(false);
 			parentButton.gameObject.SetActive(false);
+			foodButton.gameObject.SetActive(false);
+			gunButton.gameObject.SetActive(false);
 			
 			digScript.digButton.gameObject.transform.position = new Vector3((Screen.width/2),(Screen.height/2),100f);
 		}
@@ -110,19 +128,32 @@ public class ActivateTextAtLine : MonoBehaviour
 			}
 
 			//Lets the buttons appear
-			if (digScript.digCount >= 5)
+			if (digScript.digCount >= 1)
 			{
 				dogButton.gameObject.SetActive(true);
 			}
 
-			if (digScript.digCount >= 15)
+			if (digScript.digCount >= 5)
 			{
 				movieButton.gameObject.SetActive(true);
 			}
 
-			if (digScript.digCount >= 25)
+			if (digScript.digCount >= 10)
 			{
 				parentButton.gameObject.SetActive(true);
+			}
+			
+			if (digScript.digCount >= 20)
+			{
+				foodButton.gameObject.SetActive(true);
+			}
+			if (digScript.digCount >= 35)
+			{
+				foodButton.gameObject.SetActive(true);
+			}
+			if (digScript.digCount >= 55)
+			{
+				vacationButton.gameObject.SetActive(true);
 			}
 
 			//When there is currently no typing
@@ -283,6 +314,89 @@ public class ActivateTextAtLine : MonoBehaviour
 		canYeah = false;
 		talkedParents = true;
 	}
+	
+	public void FoodTalk()
+	{
+		//lose points if you interrupt the person speaking
+		if (textImporter.isTyping == true)
+		{
+			playerScript.contentScore -= 10;
+			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		if (talkedFood == true)
+		{
+			playerScript.contentScore -= 20;
+			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		textImporter.DisableTextBox();
+		textImporter.ReloadScript(foodTalk);
+		textImporter.EnableTextBox();
+		yeahWorthy = false;
+		canYeah = true;
+		talkedFood = true;
+	}
+	
+	public void GunTalk()
+	{
+		playerScript.contentScore -= 10;
+		ShowWeirdText();
+		//lose points if you interrupt the person speaking
+		if (textImporter.isTyping == true)
+		{
+			playerScript.contentScore -= 10;
+			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		if (talkedGun == true)
+		{
+			playerScript.contentScore -= 20;
+			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		textImporter.DisableTextBox();
+		textImporter.ReloadScript(gunTalk);
+		textImporter.EnableTextBox();
+		yeahWorthy = true;
+		canYeah = true;
+		talkedGun = true;
+	}
+	
+	public void VacationTalk()
+	{
+		//lose points if you interrupt the person speaking
+		if (textImporter.isTyping == true)
+		{
+			playerScript.contentScore -= 10;
+			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		if (talkedVacation == true)
+		{
+			playerScript.contentScore -= 20;
+			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
+		}
+
+		textImporter.DisableTextBox();
+		textImporter.ReloadScript(vacationTalk);
+		textImporter.EnableTextBox();
+		yeahWorthy = true;
+		canYeah = true;
+		talkedVacation = true;
+	}
 
 	//Instantiates prfab when repeating question
 	private void ShowAskText()
@@ -304,7 +418,7 @@ public class ActivateTextAtLine : MonoBehaviour
 	private void ShowWeirdText()
 	{
 		var go = Instantiate(FloatingTextPrefab, weirdBox.gameObject.transform.position, Quaternion.identity);
-		go.GetComponent<Text>().text = "Weird conversation topic!";
+		go.GetComponent<Text>().text = "Uncomfortable conversation topic!";
 		go.transform.parent = weirdBox.gameObject.transform;
 	}
 

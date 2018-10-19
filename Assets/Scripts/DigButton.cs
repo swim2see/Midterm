@@ -42,7 +42,7 @@ public class DigButton : MonoBehaviour
 	// Makes the DIG button shift position
 	void TaskOnClick ()
 	{
-		butPosition = new Vector3(Random.Range(0f,Screen.width),Random.Range(0f,Screen.height),0);
+		butPosition = new Vector3(Random.Range(200f,Screen.width - 200),Random.Range(100f,Screen.height),0);
 		digButton.gameObject.transform.position = butPosition;
 		digCount += 1;
 	}

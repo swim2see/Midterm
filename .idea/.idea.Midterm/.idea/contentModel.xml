@@ -19,6 +19,9 @@
         <e p="Text" t="Include">
           <e p="dog text.txt" t="Include" />
           <e p="example text.txt" t="Include" />
+          <e p="Food..txt" t="Include" />
+          <e p="gun Control.txt" t="Include" />
+          <e p="Long weekend.txt" t="Include" />
           <e p="Movie Talk.txt" t="Include" />
           <e p="Negative response.txt" t="Include" />
           <e p="Parents.txt" t="Include" />
