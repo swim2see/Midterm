@@ -184,14 +184,13 @@ public class Player : MonoBehaviour
 		var startTime = Time.realtimeSinceStartup;
 		while (Time.realtimeSinceStartup < startTime + pendingShakeDuration)
 		{
-			var randomPoint = new Vector3(Random.Range(-.0000001f,.0000001f), Random.Range(-.000000001f,.00000001f), initialPos.z);
+			var randomPoint = new Vector3(Random.Range(initialPos.x - 1, initialPos.x + 1), Random.Range(initialPos.y - 1, initialPos.y + 1), initialPos.z);
 			target.localPosition = randomPoint;
 			yield return null;
 		}
 
 		pendingShakeDuration = 0f;
 		target.localPosition = initialPos; 
-
 		isShaking = false;
 	}
 

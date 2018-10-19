@@ -83,50 +83,52 @@ public class ActivateTextAtLine : MonoBehaviour
 
 
 		//Unlocks dialogue buttons
-		if (digScript.digCount >= 5)
+		if (playerScript.gameState == 1)
 		{
-			dogButton.gameObject.SetActive(true);
-		}
-		
-		if (digScript.digCount >= 15)
-		{
-			movieButton.gameObject.SetActive(true);
-		}
-		
-		if (digScript.digCount >= 25)
-		{
-			parentButton.gameObject.SetActive(true);
-		}
-		
-		//When there is currently no typing
-		if (textImporter.isActive == false && canYeah == true)
-		{
-			playerScript.contentScore -= 0.1f;
-			conversationGauge.text = "RESPOND!";
-			//activate response buttons
-			yeah.gameObject.SetActive(true);
-			nah.gameObject.SetActive(true);
-		}
-		else if (textImporter.isActive == false && canYeah == false)
-		{
-			//Change this conversation thing later. It'll fuck you up.
-			conversationGauge.text = "CONVERSATIONAL LULL!";
-			playerScript.contentScore -= 0.2f;
-			yeah.gameObject.SetActive(false);
-			nah.gameObject.SetActive(false);
-		}
-		else
-		{
-			conversationGauge.text = "";
-			yeah.gameObject.SetActive(false);
-			nah.gameObject.SetActive(false);
+			if (digScript.digCount >= 5)
+			{
+				dogButton.gameObject.SetActive(true);
+			}
+
+			if (digScript.digCount >= 15)
+			{
+				movieButton.gameObject.SetActive(true);
+			}
+
+			if (digScript.digCount >= 25)
+			{
+				parentButton.gameObject.SetActive(true);
+			}
+
+			//When there is currently no typing
+			if (textImporter.isActive == false && canYeah == true)
+			{
+				playerScript.contentScore -= 0.1f;
+				conversationGauge.text = "RESPOND!";
+				//activate response buttons
+				yeah.gameObject.SetActive(true);
+				nah.gameObject.SetActive(true);
+			}
+			else if (textImporter.isActive == false && canYeah == false)
+			{
+				//Change this conversation thing later. It'll fuck you up.
+				conversationGauge.text = "CONVERSATIONAL LULL!";
+				playerScript.contentScore -= 0.2f;
+				yeah.gameObject.SetActive(false);
+				nah.gameObject.SetActive(false);
+			}
+			else
+			{
+				conversationGauge.text = "";
+				yeah.gameObject.SetActive(false);
+				nah.gameObject.SetActive(false);
+			}
 		}
 
 		if (playerScript.contentScore <= 0)
-		{
-			conversationGauge.text = "Just go home.";
-		}
-
+			{
+				conversationGauge.text = "Just go home.";
+			}
 	}
 
 
@@ -173,14 +175,14 @@ public class ActivateTextAtLine : MonoBehaviour
 		{
 			playerScript.contentScore -= 10;
 			ShowInterruptText();
-			playerScript.Shake(.2f);
+			//playerScript.Shake(.2f);
 		}
 
 		if (talkedDog == true)
 		{
 			playerScript.contentScore -= 20;
 			ShowAskText();
-			playerScript.Shake(.2f);
+			//playerScript.Shake(.2f);
 		}
 
 		textImporter.DisableTextBox();
