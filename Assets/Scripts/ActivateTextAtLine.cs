@@ -140,12 +140,14 @@ public class ActivateTextAtLine : MonoBehaviour
 			IBSButton.gameObject.SetActive(false);
 			seeYaButton.gameObject.SetActive(false);
 			digScript.digButton.gameObject.transform.position = new Vector3((Screen.width/2),(Screen.height/2),100f);
+			digScript.digButton.gameObject.SetActive(false);
 		}
 
 
 		//Makes the music faster when conversation halts
 		if (playerScript.gameState == 1)
 		{
+			digScript.digButton.gameObject.SetActive(true);
 			if (fastMusic == true)
 			{
 				music.pitch = 1.5f;
@@ -227,11 +229,6 @@ public class ActivateTextAtLine : MonoBehaviour
 				fastMusic = false;
 			}
 		}
-
-		if (playerScript.contentScore <= 0)
-			{
-				conversationGauge.text = "Just go home.";
-			}
 	}
 
 
@@ -531,10 +528,10 @@ public class ActivateTextAtLine : MonoBehaviour
 	
 	public void SeeYaTalk()
 	{
-		textImporter.DisableTextBox();
-		textImporter.ReloadScript(seeYaTalk);
-		textImporter.EnableTextBox();
-		talkedSeeYa = true;
+		digScript.digButton.gameObject.SetActive(false);
+		playerScript.gameState = 2;
+		playerScript.convoEndScreen.gameObject.SetActive(true);
+		
 	}
 
 	//Instantiates prfab when repeating question
@@ -544,7 +541,7 @@ public class ActivateTextAtLine : MonoBehaviour
 		go.GetComponent<Text>().text = "You already asked that!";
 		go.transform.parent = conversationGauge.gameObject.transform;
 
-		if (playerScript.gameState == 3)
+		if (playerScript.gameState == 2)
 		{
 			go.GetComponent<Text>().text = "";
 		}
@@ -557,7 +554,7 @@ public class ActivateTextAtLine : MonoBehaviour
 		go.GetComponent<Text>().text = "You interrupted him!";
 		go.transform.parent = interruptBox.gameObject.transform;
 		
-		if (playerScript.gameState == 3)
+		if (playerScript.gameState == 2)
 		{
 			go.GetComponent<Text>().text = "";
 		}
@@ -570,7 +567,7 @@ public class ActivateTextAtLine : MonoBehaviour
 		go.GetComponent<Text>().text = "Uncomfortable conversation topic!";
 		go.transform.parent = weirdBox.gameObject.transform;
 		
-		if (playerScript.gameState == 3)
+		if (playerScript.gameState == 2)
 		{
 			go.GetComponent<Text>().text = "";
 		}
@@ -582,7 +579,7 @@ public class ActivateTextAtLine : MonoBehaviour
 		go.GetComponent<Text>().text = "Good response!";
 		go.transform.parent = goodBox.gameObject.transform;
 		
-		if (playerScript.gameState == 3)
+		if (playerScript.gameState == 2)
 		{
 			go.GetComponent<Text>().text = "";
 		}
@@ -595,7 +592,7 @@ public class ActivateTextAtLine : MonoBehaviour
 		go.transform.parent = goodBox.gameObject.transform;
 		success.Play();
 		
-		if (playerScript.gameState == 3)
+		if (playerScript.gameState == 2)
 		{
 			go.GetComponent<Text>().text = "";
 		}

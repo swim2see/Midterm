@@ -44,7 +44,7 @@ public class RaycastMouse : MonoBehaviour
 
 				if (doorClicked)
 				{
-					doorText.text = "Smart. Go before you embarrass yourself.";
+					doorText.text = "";
 				}
 				else
 				{
@@ -56,7 +56,7 @@ public class RaycastMouse : MonoBehaviour
 			{
 				if (doorClicked)
 				{
-					doorText.text = "Smart. Go before you embarrass yourself.";
+					doorText.text = "";
 				}
 				else
 				{

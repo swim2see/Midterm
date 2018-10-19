@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
 	public int gameState = 0;
 
 	public GameObject instructionsScreen;
+	public GameObject convoEndScreen;
+	public GameObject doorEndScreen;
+	public GameObject badEndScreen;
 
 	// Use this for initialization
 	void Start ()
@@ -56,8 +59,13 @@ public class Player : MonoBehaviour
 		//Resets all of the gameplay elements. 
 		if (gameState == 0)
 		{
+	
+			convoEndScreen.gameObject.SetActive(false);
+			doorEndScreen.gameObject.SetActive(false);
+			badEndScreen.gameObject.SetActive(false);
 			Time.timeScale = 1;
-			contentScore = 100; 
+			contentScore = 100;
+			rc.doorClicked = false;
 			instructionsScreen.gameObject.SetActive(true);
 			if (Input.GetMouseButtonDown(0))
 			{
@@ -93,6 +101,7 @@ public class Player : MonoBehaviour
 			//Leaving the party
 			if (rc.doorClicked == true)
 			{
+				doorEndScreen.gameObject.SetActive(true);
 				gameState = 2;
 			}
 		}
@@ -100,14 +109,15 @@ public class Player : MonoBehaviour
 
 		if (contentScore <= 0)
 		{
+			badEndScreen.gameObject.SetActive(true);
 			gameState = 2;
 		}
 
 		//Lose/victory screen
 		if (gameState == 2)
 		{
-			Time.timeScale = 0;
-			instructionsScreen.gameObject.SetActive(true);
+			//Time.timeScale = 0;
+			//instructionsScreen.gameObject.SetActive(true);
 			if (Input.GetKeyDown(KeyCode.R))
 			{
 				gameState = 0;
