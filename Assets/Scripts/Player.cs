@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
 	public Transform human;
 
+	public AudioSource music;
+
 	public Text eyeContact;
 	public bool makingEC;
 
@@ -145,18 +147,20 @@ public class Player : MonoBehaviour
 				if (angle >= -10 && angle <= 15)
 				{
 					eyeContact.text = "";
-					contentScore += .1f;
+					contentScore += .01f;
 					makingEC = true;
 				}
 				else if (angle >= 160 && angle <= 220)
 				{
 					eyeContact.text = "DON'T WATCH ANIME";
+//					music.pitch = 1.5f;
 					contentScore -= .15f;
 					makingEC = false;
 				}
 				else
 				{
 					eyeContact.text = "MAKE EYE CONTACT";
+//					music.pitch = 1.25f;
 					contentScore -= .1f;
 					makingEC = false;
 				}

@@ -19,11 +19,22 @@ public class ActivateTextAtLine : MonoBehaviour
 
 	public bool destroyWhenActivated;
 
+
+
 	public GameObject FloatingTextPrefab;
 	public GameObject humanEyes;
 	
+	[Header("Sound")]
+	public AudioSource music;
+	public bool fastMusic;
+	public AudioSource laugh;
+	public AudioSource confusion;
+	public AudioSource error;
+	
+	[Header("Text locations")]
 	public Text conversationGauge;
 	public GameObject interruptBox;
+	public GameObject weirdBox;
 
 	public bool requirePress;
 	private bool waitForPress;
@@ -59,10 +70,14 @@ public class ActivateTextAtLine : MonoBehaviour
 		canYeah = false;
 		talkedDog = false;
 		talkedParents = false;
+		AudioSource replyNoise = GetComponent<AudioSource>();
+		laugh.volume = 500;
+		confusion.volume = 500;
 	}
 
 	private void Update()
 	{
+		//resets everything
 		if (playerScript.gameState == 0)
 		{
 			yeah.gameObject.SetActive(false);
@@ -82,9 +97,19 @@ public class ActivateTextAtLine : MonoBehaviour
 		}
 
 
-		//Unlocks dialogue buttons
+		//Makes the music faster when conversation halts
 		if (playerScript.gameState == 1)
 		{
+			if (fastMusic == true)
+			{
+				music.pitch = 1.5f;
+			}
+			else
+			{
+				music.pitch = 1;
+			}
+
+			//Lets the buttons appear
 			if (digScript.digCount >= 5)
 			{
 				dogButton.gameObject.SetActive(true);
@@ -108,6 +133,7 @@ public class ActivateTextAtLine : MonoBehaviour
 				//activate response buttons
 				yeah.gameObject.SetActive(true);
 				nah.gameObject.SetActive(true);
+				fastMusic = true;
 			}
 			else if (textImporter.isActive == false && canYeah == false)
 			{
@@ -116,12 +142,14 @@ public class ActivateTextAtLine : MonoBehaviour
 				playerScript.contentScore -= 0.2f;
 				yeah.gameObject.SetActive(false);
 				nah.gameObject.SetActive(false);
+				fastMusic = true;
 			}
 			else
 			{
 				conversationGauge.text = "";
 				yeah.gameObject.SetActive(false);
 				nah.gameObject.SetActive(false);
+				fastMusic = false;
 			}
 		}
 
@@ -136,10 +164,11 @@ public class ActivateTextAtLine : MonoBehaviour
 	public void positiveReply () {
 		if (yeahWorthy == true)
 		{
-			playerScript.contentScore += 5;
+			playerScript.contentScore += 15;
 			textImporter.ReloadScript(positiveResponse);
 			textImporter.EnableTextBox();
 			canYeah = false;
+			laugh.Play();
 		}
 		else
 		{
@@ -147,16 +176,18 @@ public class ActivateTextAtLine : MonoBehaviour
 			textImporter.ReloadScript(negativeResponse);
 			textImporter.EnableTextBox();
 			canYeah = false;
+			confusion.Play();
 		}
 	}
 	
 	public void negativeReply () {
 		if (yeahWorthy == false)
 		{
-			playerScript.contentScore += 5;
+			playerScript.contentScore += 15;
 			textImporter.ReloadScript(positiveResponse);
 			textImporter.EnableTextBox();
 			canYeah = false;
+			laugh.Play();
 		}
 		else
 		{
@@ -164,6 +195,7 @@ public class ActivateTextAtLine : MonoBehaviour
 			textImporter.ReloadScript(negativeResponse);
 			textImporter.EnableTextBox();
 			canYeah = false;
+			confusion.Play();
 		}
 	}
 
@@ -175,6 +207,8 @@ public class ActivateTextAtLine : MonoBehaviour
 		{
 			playerScript.contentScore -= 10;
 			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
 			//playerScript.Shake(.2f);
 		}
 
@@ -182,6 +216,8 @@ public class ActivateTextAtLine : MonoBehaviour
 		{
 			playerScript.contentScore -= 20;
 			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
 			//playerScript.Shake(.2f);
 		}
 
@@ -200,12 +236,16 @@ public class ActivateTextAtLine : MonoBehaviour
 		{
 			playerScript.contentScore -= 10;
 			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
 		}
 
 		if (talkedMovie == true)
 		{
 			playerScript.contentScore -= 20;
 			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
 		}
 
 		textImporter.DisableTextBox();
@@ -219,17 +259,22 @@ public class ActivateTextAtLine : MonoBehaviour
 	public void ParentTalk()
 	{
 		playerScript.contentScore -= 10;
+		ShowWeirdText();
 		//lose points if you interrupt the person speaking
 		if (textImporter.isTyping == true)
 		{
 			playerScript.contentScore -= 10;
 			ShowInterruptText();
+			error.Play();
+			playerScript.Shake(.2f);
 		}
 
 		if (talkedParents == true)
 		{
 			playerScript.contentScore -= 20;
 			ShowAskText();
+			error.Play();
+			playerScript.Shake(.2f);
 		}
 
 		textImporter.DisableTextBox();
@@ -239,6 +284,7 @@ public class ActivateTextAtLine : MonoBehaviour
 		talkedParents = true;
 	}
 
+	//Instantiates prfab when repeating question
 	private void ShowAskText()
 	{
 		var go = Instantiate(FloatingTextPrefab, conversationGauge.gameObject.transform.position, Quaternion.identity);
@@ -246,11 +292,20 @@ public class ActivateTextAtLine : MonoBehaviour
 		go.transform.parent = conversationGauge.gameObject.transform;
 	}
 	
+	//Instantiates prfab when interrupting
 	private void ShowInterruptText()
 	{
 		var go = Instantiate(FloatingTextPrefab, interruptBox.gameObject.transform.position, Quaternion.identity);
 		go.GetComponent<Text>().text = "You interrupted him!";
 		go.transform.parent = interruptBox.gameObject.transform;
+	}
+	
+	//Instantiates prfab when asking weird question
+	private void ShowWeirdText()
+	{
+		var go = Instantiate(FloatingTextPrefab, weirdBox.gameObject.transform.position, Quaternion.identity);
+		go.GetComponent<Text>().text = "Weird conversation topic!";
+		go.transform.parent = weirdBox.gameObject.transform;
 	}
 
 }
